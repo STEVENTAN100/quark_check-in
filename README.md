@@ -10,7 +10,7 @@
 【手机端】
 
 1. 打开[reqable](https://reqable.com/zh-CN/)抓包工具，手机端访问签到页
-2. 搜索找到域名 https://drive-m.quark.cn 的请求信息
+2. 搜索找到域名 https://drive-m.quark.cn 的请求信息（注意：抓取一次编码的信息！）
    ![抓包](docs/抓包.jpg)
 3. 复制url后面的参数: kps sign vcode并设置到环境变量中
    ![参数](docs/复制.png)
