@@ -130,15 +130,19 @@ def checkin():
     签到
     :return: None
     """
-    url = "https://drive-m.quark.cn/1/clouddrive/capacity/growth/sign"
+    # kps 传入的是“单次编码”，这里再编码一次，得到“二次编码”
+    kps_double = quote(kps, safe="")
+    sign_double = quote(sign, safe="")
+    vcode_double = quote(vcode, safe="")
+
+    # 把已编码好的 kps 放到 URL 里，避免被 httpx 再次编码
+    final_url = f"{url}?kps={kps_double}&sign={sign_double}&vcode={vcode_double}"
+
     querystring = {
         "pr": "ucpro",
-        "fr": "android",
-        "kps": kps,
-        "sign": sign,
-        "vcode": vcode,
+        "fr": "android"
     }
-    response = httpx.post(url=url, json={"sign_cyclic": True}, params=querystring)
+    response = httpx.post(url=final_url, json={"sign_cyclic": True}, params=querystring)
     if response.status_code == 200:
         if response.json()["code"] != 0:
             logger.warning(response.json()["message"])
