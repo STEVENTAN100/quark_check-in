@@ -4,6 +4,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pprint import pprint
 from loguru import logger
+from urllib.parse import quote
 import httpx
 import os
 
