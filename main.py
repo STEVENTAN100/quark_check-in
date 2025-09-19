@@ -131,6 +131,8 @@ def checkin():
     签到
     :return: None
     """
+
+    url = "https://drive-m.quark.cn/1/clouddrive/capacity/growth/sign"
     # kps 传入的是“单次编码”，这里再编码一次，得到“二次编码”
     kps_double = quote(kps, safe="")
     sign_double = quote(sign, safe="")
