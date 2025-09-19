@@ -6,6 +6,13 @@ on:
     - cron: '15 1 * * *'
 
   workflow_dispatch:  # 允许手动触发
+
+  push: # 新增的部分
+    branches:
+      - master
+    paths:
+      - 'main.py'
+
 jobs:
 
   run-python:
